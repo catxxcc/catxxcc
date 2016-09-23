@@ -1,0 +1,535 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @catxxcc
+ Unwatch 1
+  Star 0
+  Fork 0 catxxcc/ButtonHover-css3
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathButtonHover-css3/buttonHover.html
+1ea19e3  on 24 Apr
+@catxxcc catxxcc buttonHover.html
+1 contributor
+RawBlameHistory     
+519 lines (514 sloc)  10.8 KB
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>鼠标滑过效果</title>
+		<style type="text/css">
+			.wrap{
+				width: 700px;
+				margin: 50px auto;
+				color: black;
+			}
+			.wrapleft, .wrapright{
+				float: left;
+			}
+			*:before, *:after{
+				z-index: -1;
+				transition: 0.5s;
+				box-sizing: border-box;
+			}
+			.btn_0{
+				display: block;
+				width: 250px;
+				height: 80px;
+				line-height: 80px;
+				text-decoration: none;
+				text-align: center;
+				border: solid 1px currentColor;
+				margin: 20px 40px;
+				position: relative;
+				overflow: hidden;
+			}
+			.btn_1:before{
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 80px;
+				left: 0;
+				top: 0;
+				background-color: #520c46;
+			}
+			
+			.btn_1:hover:before{
+				width: 250px;
+			}
+			.btn_0:hover{
+				color: #e1c4dc;
+			}
+			.btn_1:active{
+				background: #881474;
+			}
+			.btn_2:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 0px;
+				height: 0px;
+				/*transform-origin: 0 0;
+				transform: translate(-80px, 80px) rotate(-45deg);*/
+				border-style: solid;
+				border-color: #6b4432 transparent transparent transparent;
+				border-width: 0px 0px 0px 0px;
+			}
+			.btn_2:hover:before{
+				border-width: 330px 330px 0px 0px;
+			}
+			.btn_3:before{
+				content: '';
+				position: absolute;
+				transform: rotate(360deg);
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-color:  transparent transparent transparent #6b4432;
+				border-width: 0 0 0 0;
+			}
+			.btn_3:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-color:  transparent transparent #6b4432 transparent;
+				border-width: 0 0 0 0;
+			}
+			.btn_3:hover:before{
+				border-width: 210px 0 0 210px;
+			}
+			.btn_3:hover:after{
+				border-width: 0 0px 210px 210px;
+			}
+			.btn_4:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 0 0;
+				border-color: transparent transparent transparent #6b4432;
+			}
+			.btn_4:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 0 0;
+				border-color: transparent #6b4432 transparent transparent;
+			}
+			.btn_4:hover:before{
+				border-width: 210px 0 0 210px;
+			}
+			.btn_4:hover:after{
+				border-width: 0 210px 210px 0;
+			}
+			.btn_5:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 0 0 ;
+				border-color: #6b4432 transparent transparent transparent;
+			}
+			.btn_5 span:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 0 0;
+				border-color: transparent transparent transparent #6b4432;
+			}
+			.btn_5:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: transparent #6b4432 transparent transparent;
+			}
+			.btn_5 span:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: transparent transparent #6b4432 transparent;
+			}
+			.btn_5:hover:before{
+				border-width: 165px 165px 0 0;
+			}
+			.btn_5:hover:after{
+				border-width: 0 165px 165px 0;
+			}
+			.btn_5:hover span:before{
+				border-width: 165px 0 0 165px;
+			}
+			.btn_5:hover span:after{
+				border-width: 0 0 165px 165px;
+			}
+			.btn_6:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: #6b4432 transparent transparent #6b4432;
+			}
+			.btn_6 span:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: transparent transparent #6b4432 #6b4432;
+			}
+			.btn_6:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: #6b4432 #6b4432 transparent transparent;
+			}
+			.btn_6 span:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: transparent #6b4432 #6b4432 transparent;
+			}
+			.btn_6:hover:before{
+				border-width: 40px 0 0 125px;
+			}
+			.btn_6:hover span:before{
+				border-width: 0 0 40px 125px;
+			}
+			.btn_6:hover:after{
+				border-width: 40px 125px 0 0;
+			}
+			.btn_6:hover span:after{
+				border-width: 0 125px 40px 0;
+			}
+			.btn_7:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: transparent transparent transparent #6b4432;
+			}
+			.btn_7:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0;
+				border-color: transparent #6b4432 transparent transparent;
+			}
+			.btn_7:hover:before{
+				border-width: 80px 0 80px 260px;
+			}
+			.btn_7:hover:after{
+				border-width: 80px 260px 80px 0;
+			}
+			.btn_21 span{
+				display: block;
+				position: absolute;
+				background: #402a55;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				left: 0;
+				top: 0;
+				transform: translate(-50%, -50%);
+				transition: width 0.5s, height 0.5s;
+				z-index: -1;
+			}
+			.btn_21:hover span{
+				width: 500px;
+				height: 500px;
+			}
+			.btn_22:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 0 63.5px;
+				border-color: #27692b transparent transparent #27692b;
+			}
+			.btn_22:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 63.5px 0 0;
+				border-color: transparent #27692b #27692b transparent;
+			}
+			.btn_22 span:before{
+				content: '';
+				position: absolute;
+				left: 62.5px;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 62.5px 0 0;
+				border-color: transparent #27692b #27692b transparent;
+			}
+			.btn_22 span:after{
+				content: '';
+				position: absolute;
+				right: 63.5px;
+				top: 0;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 62.5px 0 0;
+				border-color: #27692b #27692b transparent transparent ;
+			}
+			.btn_22:hover:before{
+				border-width: 80px 0 0 63.5px;
+			}
+			.btn_22:hover span:before{
+				border-width: 0 63.5px 80px 0;
+			}
+			.btn_22:hover span:after{
+				border-width: 80px 63.5px 0 0 ;
+			}
+			.btn_22:hover:after{
+				border-width: 0 63.5px 80px 0;
+			}
+			.btn_23:before{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 250px;
+				height: 0;
+				background-color: #27692b;
+			}
+			.btn_23:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: 250px;
+				height: 0;
+				background-color: #27692b;
+			}
+			.btn_23:hover:before{
+				height: 40px;
+			}
+			.btn_23:hover:after{
+				height: 40px;
+			}
+			.btn_24:before,
+			.btn_24:after, 
+			.btn_24 span:before, 
+			.btn_24 span:after{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 250px;
+				height: 0;
+				background-color: rgba(115, 14, 73, 0.25);
+			}
+			.btn_24:after, 
+			.btn_24 span:after{
+				bottom: 0;
+				top: auto;
+			}
+			.btn_24 span:before, 
+			.btn_24 span:after{
+				transition-delay: 0.5s;
+			}
+			.btn_24:hover:before, 
+			.btn_24:hover:after, 
+			.btn_24:hover span:before, 
+			.btn_24:hover span:after{
+				height: 80px;
+			}
+			.btn_25:before, 
+			.btn_25:after, 
+			.btn_25 span:before, 
+			.btn_25 span:after{
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 80px;
+				width: 0;
+				background-color: rgba(115, 14, 73, 0.25);
+			}
+			.btn_25:after, 
+			.btn_25 span:after{
+				right: 0;
+				left: auto;
+			}
+			.btn_25 span:before, 
+			.btn_25 span:after{
+				transition-delay: 0.5s;
+			}
+			.btn_25:hover:before, 
+			.btn_25:hover:after,
+			.btn_25:hover span:before, 
+			.btn_25:hover span:after{
+				width: 250px;
+			}
+			.btn_26:before, .btn_26:after{
+				content: '';
+				position: absolute;
+				left: -20px;
+				top: 35px;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color: #8865ae;
+			}
+			.btn_26:after{
+				right: -20px;
+				left: auto;
+				transform: translate(50%, -50%);
+			}
+			.btn_26:before{
+				transform: translate(-50%, -50%);
+			}
+			@keyframes moveRight{
+				0%{
+					left: -20px;
+				}
+				50%{
+					left: 50%;
+					width: 10px;
+					height: 10px;
+				}
+				100%{
+					left: 50%;
+					width: 375px;
+					height: 375px;
+				}
+			}
+			@keyframes moveLeft{
+				0%{
+					right: -20px;
+				}
+				50%{
+					right: 50%;
+					width: 10px;
+					height: 10px;
+				}
+				100%{
+					right: 50%;
+					width: 375px;
+					height: 375px;
+				}
+			}
+			.btn_26:hover:before{
+				animation: moveRight 1s both;
+			}
+			.btn_26:hover:after{
+				animation: moveLeft 1s both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="wrapleft">
+				<a class="btn_0 btn_1" href="#">SWIPE</a>
+				<a class="btn_0 btn_2" href="#">DIAGONAL SWIPE</a>
+				<a class="btn_0 btn_3" href="#">DOUBLE SWIPE</a>
+				<a class="btn_0 btn_4" href="#">DIAGONAL CLOSE</a>
+				<a class="btn_0 btn_5" href="#"><span>ZONING IN</span></a>
+				<a class="btn_0 btn_6" href="#"><span>4 CORNERS</span></a>
+				<a class="btn_0 btn_7" href="#">SLICE</a>
+			</div>
+			<div class="wrapright">
+				<a class="btn_0 btn_21" id="btn_21" href="#">POSITION SWAVE<span></span></a>
+				<a class="btn_0 btn_22" href="#"><span>ALTERNATE</span></a>
+				<a class="btn_0 btn_23" href="#">SMOOSH</a>
+				<a class="btn_0 btn_24" href="#"><span>VERTICAL OVERLAP</span></a>
+				<a class="btn_0 btn_25" href="#"><span>HORIZONCAL OVERLAP</span></a>
+				<a class="btn_0 btn_26" href="#">COLLSION</a>
+				<a class="btn_0" href="#"></a>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn21 = document.getElementById('btn_21');
+				var bspan = btn21.getElementsByTagName('span')[0];
+				btn21.addEventListener('mouseenter',function(e){
+					var pX = btn21.offsetLeft;
+					var pY = btn21.offsetTop;
+					var cX = e.pageX-pX;
+					var cY = e.pageY-pY;
+					bspan.style.left = cX + 'px';
+					bspan.style.top = cY + 'px';
+				});
+				btn21.addEventListener('mouseout',function(e){
+					var pX = btn21.offsetLeft;
+					var pY = btn21.offsetTop;
+					var cX = e.pageX-pX;
+					var cY = e.pageY-pY;
+					bspan.style.left = cX + 'px';
+					bspan.style.top = cY + 'px';
+				}, true);
+			}
+		</script>
+	</body>
+</html>
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
